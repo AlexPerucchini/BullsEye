@@ -56,7 +56,7 @@ class ViewController: UIViewController {
 		//reset slider bar
 		slider.value = Float(currentValue)
 		//update round
-		roundValue += 0
+		roundValue += 1
 		roundLabel.text = "\(roundValue)"
 		//update score
 		scoreLabel.text = "\(scoreValue)"
