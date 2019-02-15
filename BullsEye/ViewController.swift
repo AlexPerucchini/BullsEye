@@ -51,10 +51,13 @@ class ViewController: UIViewController {
             "\n Target:  \(targetValue)" +
             "\n Points: \(points)",
             preferredStyle: .alert)
-        let action = UIAlertAction(title: title, style: .default, handler: { _ in
+		
+		let action = UIAlertAction(title: title, style: .default, handler: { _ in
             self.startNewRound() })
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
+		
+		alert.addAction(action)
+		
+		present(alert, animated: true, completion: nil)
     }
     
 	override func viewDidLoad() {
@@ -89,6 +92,13 @@ class ViewController: UIViewController {
 		roundLabel.text = "\(roundValue)"
 		//update score
 		scoreLabel.text = "\(score)"
+		//crossfade animation
+		let transition = CATransition()
+		transition.type = CATransitionType.fade
+		transition.duration = 2
+		transition.timingFunction = CAMediaTimingFunction(name:
+			CAMediaTimingFunctionName.easeOut)
+		view.layer.add(transition, forKey: nil)
 	}
 	
 	@IBAction func startOver() {
